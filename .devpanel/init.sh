@@ -82,6 +82,7 @@ echo
 echo 'Populate caches.'
 time drush cache:warm &> /dev/null || :
 time .devpanel/warm
+time .devpanel/warm /user/login
 
 #== Finish measuring script time.
 INIT_DURATION=$SECONDS
