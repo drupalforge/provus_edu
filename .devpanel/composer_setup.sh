@@ -246,9 +246,14 @@ composer config repositories.codemirror '{
         "license": "MIT"
     }
 }'
+
+# Add repository for DevPanel Marketplace Bar.
+composer config repositories.devpanel_marketplace_bar vcs "git@github.com:devpanel-haicao/devpanel_marketplace_bar.git"
+
 # Add Webform libraries and Composer Patches.
 composer require -n --no-update \
     codemirror/codemirror \
+    devpanel/devpanel_marketplace_bar:dev-main \
     cweagans/composer-patches \
     drupal/ai_provider_litellm \
     drupal/provus_edu \
