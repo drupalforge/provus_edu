@@ -5,7 +5,7 @@ cd $APP_ROOT
 # Create required composer.json and composer.lock files.
 composer create-project --no-install ${PROJECT:=drupal/cms}
 cp -r ${PROJECT#*/}/* ./
-rm -rf ${PROJECT#*/} patches.lock.json
+rm -rf ${PROJECT#*/}
 
 # Programmatically fix Composer 2.2 allow-plugins to avoid errors.
 composer config --no-plugins allow-plugins.cweagans/composer-patches true
@@ -250,7 +250,6 @@ composer config repositories.codemirror '{
 composer require -n --no-update \
     codemirror/codemirror \
     cweagans/composer-patches \
-    drupal/ai_provider_litellm \
     drupal/provus_edu \
     jquery/image-picker \
     jquery/inputmask \
@@ -265,3 +264,9 @@ composer require -n --no-update \
     svg-pan-zoom/svg-pan-zoom \
     tabby/tabby \
     tippyjs/tippyjs
+
+if grep '"drupal/core-recommended": "^11.3' composer.json &> /dev/null; then
+    # Drupal CMS has not been updated for Drupal 11.4.
+    composer -n update --no-install
+    composer -n update -W --no-install drupal/core:11.3.* drupal/core-*:11.3.*
+fi
