@@ -67,12 +67,6 @@ if [ -z "$(drush status --field=db-status)" ]; then
       :
     done
   fi
-
-  if grep '"drupal/core-recommended": "^11.3' composer.json &> /dev/null; then
-    # Update to Drupal 11.4 after installation succeeds.
-    time composer -n update --no-progress
-    time drush -n updb
-  fi
   time drush thun stable9
 
   echo
