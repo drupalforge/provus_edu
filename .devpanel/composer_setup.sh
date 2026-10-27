@@ -247,9 +247,11 @@ composer config repositories.codemirror '{
     }
 }'
 # Add Webform libraries and Composer Patches.
+# Keep AI SEO below 1.1: invalid install YAML (https://www.drupal.org/project/ai_seo/issues/3627064).
 composer require -n --no-update \
     codemirror/codemirror \
     cweagans/composer-patches \
+    'drupal/ai_seo:~1.0.8' \
     drupal/provus_edu \
     jquery/image-picker \
     jquery/inputmask \
