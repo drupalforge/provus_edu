@@ -1,5 +1,8 @@
 {
     "patches": {
+        "drupal/ai_seo": {
+            "#3627064: Fix YAML document marker in schema_org_markup report type prompt": "https://git.drupalcode.org/project/ai_seo/-/commit/a47010b7066f1027f9a6d03d1ce860e49976a77f.patch"
+        },
         "drupal/core": {
             "#3531174: Add configuration for additional known files in project root": "https://git.drupalcode.org/issue/drupal-3531174/-/compare/eccc454363a947d3eb71a1ca7fa0e134dce002c0...96208fc1e12b4548c115d02dd80b9cfbd4e5bed7?format=diff"
         }
